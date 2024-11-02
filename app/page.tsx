@@ -5,8 +5,9 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Home, Plus, Circle, MessageCircle, PenTool, Compass } from "lucide-react"
+import { Home, Plus, Circle, MessageCircle, Compass } from "lucide-react"
 import Link from "next/link"
+import Navbar from "@/components/navbar"
 
 export default function HomePage() {
   const partnerRef = useRef<HTMLDivElement>(null)
@@ -71,52 +72,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen w-full bg-gray-100 flex flex-col">
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-white backdrop-blur-xl">
-        <div className="container mx-auto px-4">
-          <div className="flex h-16 items-center justify-between">
-            <div className="flex items-center gap-4 md:flex-1">
-              <Avatar className="h-10 w-10">
-                <AvatarImage src="/images/john.jpg" alt="Profile" />
-                <AvatarFallback>U</AvatarFallback>
-              </Avatar>
-            </div>
-            <div className="absolute md:hidden left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:left-auto md:top-auto md:translate-x-0 md:translate-y-0">
-              <Image src="/images/logosatu.png" alt="Logo" width={70} height={70} />
-            </div>
-            <div className="hidden lg:flex items-center space-x-4 flex-1 justify-center">
-              <Button variant="ghost" size="sm">
-                <Home className="mr-2 h-4 w-4" />
-                Home
-              </Button>
-              <Button variant="ghost" size="sm">
-                <Compass className="mr-2 h-4 w-4" />
-                Explore
-              </Button>
-              <Button variant="ghost" size="sm">
-                <PenTool className="mr-2 h-4 w-4" />
-                Create
-              </Button>
-              <Button variant="ghost" size="sm">
-                <MessageCircle className="mr-2 h-4 w-4" />
-                Chat AI
-              </Button>
-            </div>
-            <div className="flex gap-2 md:flex-1 md:justify-end">
-              <Link href={"/sign-in"}>
-                <Button variant="default" size="sm">
-                  Sign in
-                </Button>
-              </Link>
-              <Link href={"/sign-up"}>
-                <Button variant="outline" size="sm">
-                  Sign Up
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </header>
-
+      <Navbar />
       <main className="flex-grow w-full">
         <div className="container mx-auto px-4 py-6 md:py-8">
           {/* Recommendation Projects */}
@@ -133,7 +89,6 @@ export default function HomePage() {
               ))}
             </div>
           </section>
-
           {/* Recommendation Partners */}
           <section className="mb-8">
             <h2 className="text-lg font-semibold mb-4">Recommendation Partner's</h2>
@@ -152,7 +107,6 @@ export default function HomePage() {
               ))}
             </div>
           </section>
-
           {/* Create Article */}
           <section className="mb-8">
             <div className="flex items-center gap-4 mb-4">
@@ -175,7 +129,6 @@ export default function HomePage() {
               <Image src="/images/logosatu.png" alt="Logo" width={70} height={70} />
             </div>
           </section>
-
           {/* Event */}
           <section className="mb-8">
             <h2 className="text-lg font-semibold mb-4">Event</h2>
@@ -185,7 +138,6 @@ export default function HomePage() {
               </CardContent>
             </Card>
           </section>
-
           {/* Investors */}
           <section className="mb-20 md:mb-8">
             <h2 className="text-lg font-semibold mb-4">Investor</h2>
@@ -206,27 +158,6 @@ export default function HomePage() {
           </section>
         </div>
       </main>
-
-      {/* Mobile Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 border-t bg-white lg:hidden">
-        <div className="flex items-center justify-around p-4">
-          <Button variant="ghost" size="icon">
-            <Home className="h-6 w-6" />
-          </Button>
-          <Button variant="ghost" size="icon">
-            <Compass className="h-6 w-6" />
-          </Button>
-          <Button variant="ghost" size="icon">
-            <Plus className="h-6 w-6" />
-          </Button>
-          <Button variant="ghost" size="icon">
-            <Circle className="h-6 w-6" />
-          </Button>
-          <Button variant="ghost" size="icon">
-            <MessageCircle className="h-6 w-6" />
-          </Button>
-        </div>
-      </nav>
     </div>
   )
 }

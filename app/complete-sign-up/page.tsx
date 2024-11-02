@@ -46,8 +46,8 @@ const formSchema = z.object({
 })
 
 const predefinedSkills = [
-   "Backend Engineer",
-   "Frontend Engineer",
+   "BE Engineer",
+   "FE Engineer",
    "DevOps Engineer",
    "UI/UX Designer",
    "Product Manager",
@@ -75,7 +75,6 @@ export default function CompleteSignUp() {
 
    const onSubmit = (values: z.infer<typeof formSchema>) => {
       console.log(values)
-      // Handle form submission
    }
 
    const toggleSkill = (skill: string) => {
