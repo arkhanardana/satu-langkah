@@ -100,7 +100,7 @@ export default function CompleteSignUp() {
          <div className="mx-auto max-w-md">
             {/* Logo */}
             <div className="mb-3 flex justify-center">
-               <Image src="/images/logosatu.png" alt="Logo" width={150} height={150} />
+               <Image src="/images/logomain.png" alt="Logo" width={200} height={200} />
             </div>
 
             <Form {...form}>

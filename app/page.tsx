@@ -2,10 +2,8 @@
 
 import { useRef, useEffect } from "react"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Home, Plus, Circle, MessageCircle, Compass } from "lucide-react"
 import Link from "next/link"
 import Navbar from "@/components/navbar"
 
@@ -126,7 +124,7 @@ export default function HomePage() {
                 <p>Satu langkah mulai</p>
                 <p>Satu Langkah Berkembang</p>
               </div>
-              <Image src="/images/logosatu.png" alt="Logo" width={70} height={70} />
+              <Image src="/images/logomain.png" alt="Logo" width={70} height={70} />
             </div>
           </section>
           {/* Event */}

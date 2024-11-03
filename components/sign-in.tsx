@@ -55,9 +55,8 @@ export default function SignIn() {
    return (
       <div className="min-h-screen bg-white flex flex-col items-center justify-center">
          <div className="mb-3">
-            <Image src="/images/logosatu.png" alt="Logo" width={200} height={200} />
+            <Image src="/images/logomain.png" alt="Logo" width={200} height={200} />
          </div>
-
          <Card className="w-full max-w-sm border-none bg-transparent shadow-none">
             <CardHeader>
                <CardTitle className="text-2xl text-center">Welcome To Satu Langkah!</CardTitle>

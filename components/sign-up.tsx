@@ -15,11 +15,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { z } from "zod";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-const signUpSchema = z.object({
-   name: z.string().min(1, { message: "Name is required" }),
-   password: z.string().min(6, { message: "Password must be at least 6 characters long" }),
-});
+const signUpSchema = z
+   .object({
+      name: z.string().min(1, { message: "Name is required" }),
+      password: z.string().min(6, { message: "Password must be at least 6 characters long" }),
+      confirmPassword: z.string(),
+   })
+   .refine((data) => data.password === data.confirmPassword, {
+      message: "Passwords do not match",
+      path: ["confirmPassword"],
+   });
 
 type SignUpFormData = z.infer<typeof signUpSchema>;
 
@@ -27,12 +34,16 @@ export default function SignUp() {
    const [formData, setFormData] = useState<SignUpFormData>({
       name: "",
       password: "",
+      confirmPassword: "",
    });
 
    const [errors, setErrors] = useState<Partial<SignUpFormData>>({
       name: "",
       password: "",
+      confirmPassword: "",
    });
+
+   const router = useRouter();
 
    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -49,13 +60,15 @@ export default function SignUp() {
             newErrors[err.path[0] as keyof SignUpFormData] = err.message;
          });
          setErrors(newErrors);
+      } else {
+         router.push("/complete-sign-up");
       }
    };
 
    return (
       <div className="min-h-screen bg-white flex flex-col items-center justify-center">
          <div className="mb-3">
-            <Image src="/images/logosatu.png" alt="Logo" width={200} height={200} />
+            <Image src="/images/logomain.png" alt="Logo" width={200} height={200} />
          </div>
 
          <Card className="w-full max-w-sm border-none bg-transparent shadow-none">
@@ -91,6 +104,20 @@ export default function SignUp() {
                      />
                      {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
                   </div>
+                  <div className="space-y-2">
+                     <Label htmlFor="confirmPassword">Confirm Password</Label>
+                     <Input
+                        id="confirmPassword"
+                        placeholder="Confirm your password"
+                        type="password"
+                        value={formData.confirmPassword}
+                        onChange={handleChange}
+                        className="h-12 rounded-3xl border-blue-100 bg-white/50 backdrop-blur-sm placeholder:text-muted-foreground/50 focus-visible:ring-blue-600"
+                     />
+                     {errors.confirmPassword && (
+                        <p className="text-red-500 text-sm">{errors.confirmPassword}</p>
+                     )}
+                  </div>
                   <Button
                      className="h-12 mb-3 w-full rounded-3xl bg-white font-medium text-blue-600 hover:bg-blue-50"
                      variant="outline"
@@ -121,14 +148,12 @@ export default function SignUp() {
                      Sign up with Google
                   </Button>
                   <Button
+                     type="submit"
                      className="h-12 w-full rounded-3xl bg-blue-600 text-white hover:bg-blue-700"
                   >
-                     <Link href={'/complete-sign-up'}>
-                        Sign up
-                     </Link>
+                     Sign up
                   </Button>
                </form>
-
                <p className="text-center text-sm text-muted-foreground">
                   Already have an account?{" "}
                   <Link
