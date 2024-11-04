@@ -29,7 +29,7 @@ export default function Navbar() {
                      </Avatar>
                   </div>
                   <div className="absolute lg:hidden md:static left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:left-auto md:top-auto md:translate-x-0 md:translate-y-0">
-                     <Image src="/images/logosatu.png" alt="Logo" width={70} height={70} />
+                     <Image src="/images/logomain.png" alt="Logo" width={70} height={70} />
                   </div>
                   <div className="hidden lg:flex items-center space-x-4 flex-1 justify-center">
                      <NavButton href="/" icon={<Home className="h-4 w-4" />} label="Home" />
