@@ -119,6 +119,7 @@ export default function SignUp() {
                      )}
                   </div>
                   <Button
+                     type="button"
                      className="h-12 mb-3 w-full rounded-3xl bg-white font-medium text-blue-600 hover:bg-blue-50"
                      variant="outline"
                   >
