@@ -124,7 +124,7 @@ export default function HomePage() {
                 <p>Satu langkah mulai</p>
                 <p>Satu Langkah Berkembang</p>
               </div>
-              <Image src="/images/logomain.png" alt="Logo" width={70} height={70} />
+              <Image src="/images/logomain.png" alt="Logo" width={100} height={100} />
             </div>
           </section>
           {/* Event */}

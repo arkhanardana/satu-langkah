@@ -32,6 +32,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 
 const formSchema = z.object({
    province: z.string().min(1, "Province is required"),
@@ -65,6 +66,7 @@ const predefinedSkills = [
 
 export default function CompleteSignUp() {
    const [showCustomInput, setShowCustomInput] = React.useState(false)
+   const router = useRouter()
 
    const form = useForm<z.infer<typeof formSchema>>({
       resolver: zodResolver(formSchema),
@@ -75,6 +77,7 @@ export default function CompleteSignUp() {
 
    const onSubmit = (values: z.infer<typeof formSchema>) => {
       console.log(values)
+      router.push("/profile")
    }
 
    const toggleSkill = (skill: string) => {
@@ -131,7 +134,7 @@ export default function CompleteSignUp() {
                               <PopoverTrigger asChild>
                                  <FormControl>
                                     <Button
-                                       variant="outline"
+                                       variant="date"
                                        className={cn(
                                           "w-full pl-3 text-left font-normal",
                                           !field.value && "text-muted-foreground"

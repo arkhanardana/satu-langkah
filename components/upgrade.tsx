@@ -18,7 +18,7 @@ const FeatureItem = ({ children }: { children: React.ReactNode }) => (
 export default function UpgradeToPremium() {
    return (
       <Card className="w-full max-w-md border-none shadow-lg overflow-hidden">
-         <CardHeader className="bg-yellow-300 text-white p-6 rounded-none">
+         <CardHeader className="bg-yellow-400 text-white p-6 rounded-none">
             <h2 className="text-2xl font-bold text-center">
                UPGRADE TO PREMIUM
             </h2>

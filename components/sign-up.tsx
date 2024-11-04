@@ -61,7 +61,7 @@ export default function SignUp() {
          });
          setErrors(newErrors);
       } else {
-         router.push("/complete-sign-up");
+         router.push("/complete");
       }
    };
 
@@ -104,7 +104,7 @@ export default function SignUp() {
                      />
                      {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-2 ">
                      <Label htmlFor="confirmPassword">Confirm Password</Label>
                      <Input
                         id="confirmPassword"
