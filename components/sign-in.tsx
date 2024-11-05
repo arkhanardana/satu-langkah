@@ -54,7 +54,7 @@ export default function SignIn() {
 
    return (
       <div className="min-h-screen bg-white flex flex-col items-center justify-center">
-         <div className="mb-3">
+         <div className="mb-1">
             <Image src="/images/logomain.png" alt="Logo" width={200} height={200} />
          </div>
          <Card className="w-full max-w-sm border-none bg-transparent shadow-none">

@@ -64,7 +64,7 @@ const predefinedSkills = [
    "Internet of Things",
 ]
 
-export default function CompleteSignUp() {
+export default function Complete() {
    const [showCustomInput, setShowCustomInput] = React.useState(false)
    const router = useRouter()
 
