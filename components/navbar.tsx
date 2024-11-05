@@ -24,7 +24,9 @@ export default function Navbar() {
                <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center gap-4 md:flex-1">
                      <Avatar className="h-10 w-10">
-                        <AvatarImage src="/images/john.jpg" alt="Profile" />
+                        <Link href={"/view-profile"}>
+                           <AvatarImage src="/images/john.jpg" alt="Profile" />
+                        </Link>
                         <AvatarFallback>U</AvatarFallback>
                      </Avatar>
                   </div>
