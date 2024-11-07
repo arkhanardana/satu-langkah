@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Home, Compass, PenTool, MessageCircle, Plus, Circle } from "lucide-react"
+import { Home, Compass, MessageCircle, Plus, Circle } from "lucide-react"
 
 export default function Navbar() {
    const [isScrolled, setIsScrolled] = useState(false)
@@ -27,7 +27,7 @@ export default function Navbar() {
                         <Link href={"/view-profile"}>
                            <AvatarImage src="/images/john.jpg" alt="Profile" />
                         </Link>
-                        <AvatarFallback>U</AvatarFallback>
+                        <AvatarFallback>P</AvatarFallback>
                      </Avatar>
                   </div>
                   <div className="absolute lg:hidden md:static left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:left-auto md:top-auto md:translate-x-0 md:translate-y-0">
@@ -36,8 +36,9 @@ export default function Navbar() {
                   <div className="hidden lg:flex items-center space-x-4 flex-1 justify-center">
                      <NavButton href="/" icon={<Home className="h-4 w-4" />} label="Home" />
                      <NavButton href="/explore" icon={<Compass className="h-4 w-4" />} label="Explore" />
-                     <NavButton href="/create" icon={<PenTool className="h-4 w-4" />} label="Create" />
-                     <NavButton href="/chat" icon={<MessageCircle className="h-4 w-4" />} label="Chat AI" />
+                     <NavButton href="/chat-ai" icon={<Plus className="h-4 w-4" />} label="Chat AI" />
+                     <NavButton href="/community" icon={<Circle className="h-4 w-4" />} label="Community" />
+                     <NavButton href="/chat" icon={<MessageCircle className="h-4 w-4" />} label="Chat" />
                   </div>
                   <div className="flex gap-2 md:flex-1 md:justify-end">
                      <Link href="/sign-in">
@@ -60,8 +61,8 @@ export default function Navbar() {
             <div className="flex items-center justify-around p-4">
                <NavIconButton href="/" icon={<Home className="h-6 w-6" />} />
                <NavIconButton href="/explore" icon={<Compass className="h-6 w-6" />} />
-               <NavIconButton href="/create" icon={<Plus className="h-6 w-6" />} />
-               <NavIconButton href="/profile" icon={<Circle className="h-6 w-6" />} />
+               <NavIconButton href="/chat-ai" icon={<Plus className="h-6 w-6" />} />
+               <NavIconButton href="/community" icon={<Circle className="h-6 w-6" />} />
                <NavIconButton href="/chat" icon={<MessageCircle className="h-6 w-6" />} />
             </div>
          </nav>
@@ -69,7 +70,7 @@ export default function Navbar() {
    )
 }
 
-function NavButton({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) {
+export function NavButton({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) {
    return (
       <Link href={href}>
          <Button variant="ghost" size="sm" className="flex items-center">
@@ -80,7 +81,7 @@ function NavButton({ href, icon, label }: { href: string; icon: React.ReactNode;
    )
 }
 
-function NavIconButton({ href, icon }: { href: string; icon: React.ReactNode }) {
+export function NavIconButton({ href, icon }: { href: string; icon: React.ReactNode }) {
    return (
       <Link href={href}>
          <Button variant="ghost" size="icon">

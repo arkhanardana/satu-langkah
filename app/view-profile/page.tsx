@@ -23,7 +23,10 @@ export default function ViewProfilePage() {
             <div className="flex flex-col items-center mb-6">
                <div className="w-24 h-24 rounded-full border-2 border-blue-600 mb-4"></div>
                <div className="text-center">
-                  <div className="text-sm text-gray-600 mb-1">Partner: Investor:</div>
+                  <div className="text-sm text-gray-600 mb-1 flex justify-around">
+                     <p>Partner:</p>
+                     <p>Investor:</p>
+                  </div>
                   <h1 className="text-xl font-semibold mb-1">Nama | Umur</h1>
                   <p className="text-gray-600 mb-1">Province</p>
                   <p className="text-blue-600">Main Skill (First Skill to Select)</p>

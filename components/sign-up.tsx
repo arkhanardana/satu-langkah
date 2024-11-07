@@ -118,7 +118,7 @@ export default function SignUp() {
                         <p className="text-red-500 text-sm">{errors.confirmPassword}</p>
                      )}
                   </div>
-                  <div className="mt-24">
+                  <div className="space-y-2">
                      <Button
                         type="button"
                         className="h-12 w-full rounded-3xl bg-white font-medium text-blue-600 hover:bg-blue-50"
