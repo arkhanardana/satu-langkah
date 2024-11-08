@@ -90,48 +90,6 @@ export default function ProfileForm() {
 
                <FormField
                   control={form.control}
-                  name="age"
-                  render={({ field }) => (
-                     <FormItem>
-                        <FormLabel>Age</FormLabel>
-                        <FormControl>
-                           <Input placeholder="Enter your age" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                     </FormItem>
-                  )}
-               />
-
-               <FormField
-                  control={form.control}
-                  name="province"
-                  render={({ field }) => (
-                     <FormItem>
-                        <FormLabel>Province</FormLabel>
-                        <FormControl>
-                           <Input placeholder="Enter your province" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                     </FormItem>
-                  )}
-               />
-
-               <FormField
-                  control={form.control}
-                  name="skills"
-                  render={({ field }) => (
-                     <FormItem>
-                        <FormLabel>Skills</FormLabel>
-                        <FormControl>
-                           <Input placeholder="Enter your skills" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                     </FormItem>
-                  )}
-               />
-
-               <FormField
-                  control={form.control}
                   name="experiences"
                   render={({ field }) => (
                      <FormItem>
