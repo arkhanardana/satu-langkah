@@ -49,7 +49,7 @@ export default function ProfileForm() {
       <div className="w-full max-w-md mx-auto p-4 space-y-6">
          <div className="flex flex-col items-center gap-4">
             <div className="flex items-center justify-center">
-               <Image src={"/images/logomain.png"} alt="Profile" width={150} height={150} />
+               <Image src="/images/logomain.png" alt="Profile" width={100} height={100} />
             </div>
 
             <div className="relative w-32 h-32 rounded-full border-2 border-dashed border-gray-300 flex items-center justify-center bg-gray-50 overflow-hidden group cursor-pointer hover:border-blue-600 transition-colors">

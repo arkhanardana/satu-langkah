@@ -49,7 +49,7 @@ const formSchema = z.object({
 const predefinedSkills = [
    "BE Engineer",
    "FE Engineer",
-   "DevOps Engineer",
+   "DevOps",
    "UI/UX Designer",
    "Product Manager",
    "Data Scientist",
