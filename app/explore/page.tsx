@@ -7,7 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Search, ThumbsUp, Eye, MessageSquare } from "lucide-react"
 import Dock from "@/components/mobile-dock"
 
-export default function Component() {
+export default function ExplorePage() {
    const partnersRef = useRef<HTMLDivElement>(null)
    const investorsRef = useRef<HTMLDivElement>(null)
 
@@ -77,7 +77,7 @@ export default function Component() {
 
    return (
       <div className="min-h-screen bg-gray-50 p-4">
-         <div className="max-w-md mx-auto space-y-4">
+         <div className="max-w-md mx-auto space-y-4 pb-20">
             <h1 className="text-xl font-bold mb-4">Explore</h1>
 
             {/* Search Bar */}

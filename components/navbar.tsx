@@ -42,12 +42,12 @@ export default function Navbar() {
                   </div>
                   <div className="flex gap-2 md:flex-1 md:justify-end">
                      <Link href="/sign-in">
-                        <Button variant="default" size="sm">
+                        <Button variant="default" size="xs">
                            Sign in
                         </Button>
                      </Link>
                      <Link href="/sign-up">
-                        <Button variant="outline" size="sm">
+                        <Button variant="outline" size="xs">
                            Sign Up
                         </Button>
                      </Link>

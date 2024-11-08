@@ -67,8 +67,8 @@ export default function SignUp() {
 
    return (
       <div className="min-h-screen bg-white flex flex-col items-center justify-center">
-         <div className="mb-1">
-            <Image src="/images/logomain.png" alt="Logo" width={200} height={200} />
+         <div>
+            <Image src="/images/logomain.png" alt="Logo" width={150} height={150} />
          </div>
 
          <Card className="w-full max-w-sm border-none bg-transparent shadow-none">
