@@ -60,7 +60,6 @@ export default function ProfileForm() {
                   onChange={(e) => {
                      const file = e.target.files?.[0]
                      if (file) {
-                        // Handle file upload
                         console.log(file)
                      }
                   }}
@@ -132,7 +131,6 @@ export default function ProfileForm() {
                      onChange={(e) => {
                         const file = e.target.files?.[0]
                         if (file) {
-                           // Handle CV upload
                            console.log(file)
                         }
                      }}
