@@ -114,7 +114,7 @@ export default function HomePage() {
               </Avatar>
               <div>
                 <Link href={'/create-article'}>
-                  <h2 className="font-semibold">Buat Artikel</h2>
+                  <h2 className="font-semibold hover:underline">Buat Artikel</h2>
                   <p className="text-sm text-muted-foreground">Isi Artikel / Projek</p>
                 </Link>
               </div>
