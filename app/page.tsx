@@ -113,7 +113,7 @@ export default function HomePage() {
                 <AvatarFallback>U</AvatarFallback>
               </Avatar>
               <div>
-                <Link href={'/create-article'}>
+                <Link href={'/article'}>
                   <h2 className="font-semibold hover:underline">Buat Artikel</h2>
                   <p className="text-sm text-muted-foreground">Isi Artikel / Projek</p>
                 </Link>

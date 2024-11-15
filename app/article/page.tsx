@@ -40,7 +40,7 @@ export default function CreateArticlePage() {
             </div>
 
             {/* Create Article Button */}
-            <Link href="/create-article/write">
+            <Link href="/article/write">
                <Button className="w-full bg-blue-600 hover:bg-blue-700 h-14 mb-6">
                   <Plus className="h-6 w-6" />
                </Button>
