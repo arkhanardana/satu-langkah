@@ -2,6 +2,7 @@ import Link from "next/link"
 import { ArrowLeft, ThumbsUp, Eye, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 export default function ViewProfilePage() {
    return (
@@ -21,7 +22,10 @@ export default function ViewProfilePage() {
 
             {/* Profile Section */}
             <div className="flex flex-col items-center mb-6">
-               <div className="w-24 h-24 rounded-full border-2 border-blue-600 mb-4"></div>
+               <Avatar className="h-24 w-24">
+                  <AvatarFallback>G</AvatarFallback>
+                  <AvatarImage src="/images/john.jpg" alt="My Profile" />
+               </Avatar>
                <div className="text-center">
                   <div className="text-sm text-gray-600 mb-1 flex justify-around">
                      <p>Partner:</p>
