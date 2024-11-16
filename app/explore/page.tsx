@@ -4,8 +4,10 @@ import { useRef, useEffect } from "react"
 import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Search, ThumbsUp, Eye, MessageSquare } from "lucide-react"
+import { Search, ThumbsUp, Eye, MessageSquare, ArrowLeft } from "lucide-react"
 import Dock from "@/components/mobile-dock"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export default function ExplorePage() {
    const partnersRef = useRef<HTMLDivElement>(null)
@@ -78,7 +80,14 @@ export default function ExplorePage() {
    return (
       <div className="min-h-screen bg-gray-50 p-4">
          <div className="max-w-md mx-auto space-y-4 pb-20">
-            <h1 className="text-xl font-bold mb-4">Explore</h1>
+            <div className="flex items-center gap-4">
+               <Link href="/">
+                  <Button type="button" variant="ghost" size="icon">
+                     <ArrowLeft className="h-6 w-6" color="blue" />
+                  </Button>
+               </Link>
+               <h1 className="text-xl font-bold">Explore</h1>
+            </div>
 
             {/* Search Bar */}
             <div className="relative">

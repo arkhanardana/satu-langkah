@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { Users } from 'lucide-react'
+import { ArrowLeft, Users } from 'lucide-react'
 import Dock from "@/components/mobile-dock"
 import { AvatarImage } from "@radix-ui/react-avatar"
 
@@ -39,10 +39,16 @@ export default function ChatPartnersPage() {
    return (
       <div className="min-h-screen bg-gray-50 mb-24">
          <div className="max-w-md mx-auto">
+
             {/* Header */}
-            <div className="sticky top-0 bg-white border-b px-4 py-2 z-50">
+            <div className="sticky top-0 bg-white border-b px-2 py-2 z-50">
                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center">
+                     <Link href="/">
+                        <Button type="button" variant="ghost" size="icon">
+                           <ArrowLeft className="h-6 w-6" color="blue" />
+                        </Button>
+                     </Link>
                      <div>
                         <Image
                            src="/images/logomain.png"

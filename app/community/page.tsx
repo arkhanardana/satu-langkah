@@ -3,6 +3,9 @@
 import Image from "next/image"
 import { Card } from "@/components/ui/card"
 import Dock from "@/components/mobile-dock"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { ArrowLeft } from "lucide-react"
 
 interface CommunityItemProps {
    title: string
@@ -36,16 +39,20 @@ export default function CommunityPage() {
    return (
       <div className="min-h-screen bg-gray-50 mb-20">
          <div className="max-w-md mx-auto p-4">
+            <Link href="/">
+               <Button type="button" variant="ghost" size="icon">
+                  <ArrowLeft className="h-6 w-6" color="blue" />
+               </Button>
+            </Link>
+
             {/* Header */}
             <div className="flex flex-col items-center mb-6">
-               <div className="mb-2">
-                  <Image
-                     src="/images/logomain.png"
-                     alt="logo"
-                     width={100}
-                     height={100}
-                  />
-               </div>
+               <Image
+                  src="/images/logomain.png"
+                  alt="logo"
+                  width={95}
+                  height={95}
+               />
                <h1 className="text-3xl font-bold">Community</h1>
             </div>
 
