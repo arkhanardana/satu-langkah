@@ -4,42 +4,44 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { ArrowLeft, Users } from 'lucide-react'
 import Dock from "@/components/mobile-dock"
-import { AvatarImage } from "@radix-ui/react-avatar"
 
 interface ChatPartnerItemProps {
+   id: string
    name: string
    lastChat: string
 }
 
-function ChatPartnerItem({ name, lastChat }: ChatPartnerItemProps) {
+function ChatPartnerItem({ id, name, lastChat }: ChatPartnerItemProps) {
    return (
-      <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors">
-         <Avatar className="h-10 w-10">
-            <AvatarFallback>{name[0]}</AvatarFallback>
-            <AvatarImage src="/images/john.jpg" alt="Profile" />
-         </Avatar>
-         <div className="flex-1 min-w-0">
-            <h3 className="font-medium text-sm">{name}</h3>
-            <p className="text-xs text-gray-600 truncate">{lastChat}</p>
+      <Link href={`/chat/${id}`}>
+         <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors">
+            <Avatar className="h-10 w-10">
+               <AvatarFallback>{name[0]}</AvatarFallback>
+               <AvatarImage src="/images/john.jpg" alt="Profile" />
+            </Avatar>
+            <div className="flex-1 min-w-0">
+               <h3 className="font-medium text-sm">{name}</h3>
+               <p className="text-xs text-gray-600 truncate">{lastChat}</p>
+            </div>
          </div>
-      </div>
+      </Link>
    )
 }
 
 export default function ChatPartnersPage() {
    // Sample data - replace with your actual data
-   const chatPartners = Array(12).fill({
-      name: "Nama",
+   const chatPartners = Array(12).fill(null).map((_, index) => ({
+      id: `chat-${index + 1}`,
+      name: `Nama ${index + 1}`,
       lastChat: "Chat Terakhir"
-   })
+   }))
 
    return (
       <div className="min-h-screen bg-gray-50 mb-24">
          <div className="max-w-md mx-auto">
-
             {/* Header */}
             <div className="sticky top-0 bg-white border-b px-2 py-2 z-50">
                <div className="flex items-center justify-between">
@@ -75,9 +77,10 @@ export default function ChatPartnersPage() {
             {/* Chat Partners List */}
             <Card className="m-4 border-2 border-blue-100">
                <div className="p-3 space-y-2">
-                  {chatPartners.map(({ name, lastChat }, index) => (
+                  {chatPartners.map(({ id, name, lastChat }) => (
                      <ChatPartnerItem
-                        key={index}
+                        key={id}
+                        id={id}
                         name={name}
                         lastChat={lastChat}
                      />
@@ -85,6 +88,7 @@ export default function ChatPartnersPage() {
                </div>
             </Card>
          </div>
+
          <Dock />
       </div>
    )
