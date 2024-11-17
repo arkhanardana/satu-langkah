@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -17,6 +17,7 @@ interface Message {
 
 export default function ChatPage({ params }: { params: { chatId: string } }) {
    const [message, setMessage] = useState("")
+   const messagesEndRef = useRef<HTMLDivElement>(null)
 
    // Sample messages - replace with actual data from WebSocket
    const messages: Message[] = [
@@ -42,13 +43,17 @@ export default function ChatPage({ params }: { params: { chatId: string } }) {
       setMessage("")
    }
 
+   useEffect(() => {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+   }, [messages])
+
    return (
       <div className="flex flex-col h-screen bg-blue-50">
          {/* Header */}
          <div className="sticky top-0 z-10 bg-white border-b px-4 py-2">
             <div className="flex items-center justify-between">
                <div className="flex items-center gap-3">
-                  <Link href="/">
+                  <Link href="/chat">
                      <Button type="button" variant="ghost" size="icon">
                         <ArrowLeft className="h-6 w-6" color="blue" />
                      </Button>
@@ -88,6 +93,7 @@ export default function ChatPage({ params }: { params: { chatId: string } }) {
                   </div>
                </div>
             ))}
+            <div ref={messagesEndRef} />
          </div>
 
          {/* Message Input */}
