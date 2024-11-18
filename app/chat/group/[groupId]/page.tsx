@@ -51,9 +51,9 @@ export default function GroupChatPage({ params }: { params: { groupId: string } 
    }, [messages])
 
    return (
-      <div className="flex flex-col h-screen bg-blue-100/50">
+      <div className="flex flex-col h-screen bg-blue-50">
          {/* Header */}
-         <div className="sticky top-0 z-10 bg-white/80 backdrop-blur-sm border-b px-4 py-2">
+         <div className="fixed top-0 left-0 right-0 z-10 bg-white/80 backdrop-blur-sm border-b px-4 py-2">
             <div className="flex items-center justify-between">
                <div className="flex items-center gap-3">
                   <Link href="/chat/group">
@@ -75,6 +75,12 @@ export default function GroupChatPage({ params }: { params: { groupId: string } 
                      </div>
                   </div>
                </div>
+               <Image
+                  src="/images/logomain.png"
+                  alt="Logo"
+                  width={64}
+                  height={64}
+               />
             </div>
          </div>
 
@@ -113,7 +119,7 @@ export default function GroupChatPage({ params }: { params: { groupId: string } 
          </div>
 
          {/* Message Input */}
-         <div className="sticky bottom-0 bg-white/80 backdrop-blur-sm border-t p-4">
+         <div className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm border-t p-4">
             <form onSubmit={handleSendMessage} className="flex items-center gap-2">
                <Input
                   value={message}

@@ -59,7 +59,7 @@ export default function ChatPage({ params }: { params: { chatId: string } }) {
 
    const handleSendMessage = (e: React.FormEvent) => {
       e.preventDefault()
-      if (!message.trim()) return true
+      if (!message.trim()) return
       console.log(message)
       // Handle message sending
       setMessage("")
