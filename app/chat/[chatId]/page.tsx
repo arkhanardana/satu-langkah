@@ -103,9 +103,9 @@ export default function ChatPage({ params }: { params: { chatId: string } }) {
                   className={`flex ${msg.isSender ? 'justify-end' : 'justify-start'}`}
                >
                   <div
-                     className={`max-w-[80%] rounded-lg p-3 ${msg.isSender
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-white'
+                     className={`max-w-[80%] rounded-2xl p-3 ${msg.isSender
+                        ? 'bg-blue-600 text-white rounded-br-none'
+                        : 'bg-white rounded-bl-none'
                         }`}
                   >
                      <p className="text-sm">{msg.content}</p>

@@ -36,6 +36,34 @@ export default function GroupChatPage({ params }: { params: { groupId: string } 
          timestamp: "10:01",
          senderName: "You"
       },
+      {
+         id: "3",
+         content: "Hello everyone!",
+         isSender: false,
+         timestamp: "10:00",
+         senderName: "John"
+      },
+      {
+         id: "4",
+         content: "Hi! How are you all doing?",
+         isSender: true,
+         timestamp: "10:01",
+         senderName: "You"
+      },
+      {
+         id: "5",
+         content: "Hello everyone!",
+         isSender: false,
+         timestamp: "10:00",
+         senderName: "John"
+      },
+      {
+         id: "6",
+         content: "Hi! How are you all doing?",
+         isSender: true,
+         timestamp: "10:01",
+         senderName: "You"
+      },
    ]
 
    const handleSendMessage = (e: React.FormEvent) => {
@@ -119,7 +147,7 @@ export default function GroupChatPage({ params }: { params: { groupId: string } 
          </div>
 
          {/* Message Input */}
-         <div className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm border-t p-4">
+         <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4">
             <form onSubmit={handleSendMessage} className="flex items-center gap-2">
                <Button
                   type="button"
