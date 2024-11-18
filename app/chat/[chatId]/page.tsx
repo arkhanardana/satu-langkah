@@ -18,7 +18,6 @@ interface Message {
 export default function ChatPage({ params }: { params: { chatId: string } }) {
    const [message, setMessage] = useState("")
    const messagesEndRef = useRef<HTMLDivElement>(null)
-   const [windowHeight, setWindowHeight] = useState(0)
 
    // Sample messages - replace with actual data from WebSocket
    const messages: Message[] = [
@@ -30,6 +29,28 @@ export default function ChatPage({ params }: { params: { chatId: string } }) {
       },
       {
          id: "2",
+         content: "Hi! How are you?",
+         isSender: true,
+         timestamp: "10:01"
+      }, {
+         id: "3",
+         content: "Hello there!",
+         isSender: false,
+         timestamp: "10:00"
+      },
+      {
+         id: "4",
+         content: "Hi! How are you?",
+         isSender: true,
+         timestamp: "10:01"
+      }, {
+         id: "5",
+         content: "Hello there!",
+         isSender: false,
+         timestamp: "10:00"
+      },
+      {
+         id: "6",
          content: "Hi! How are you?",
          isSender: true,
          timestamp: "10:01"
@@ -48,20 +69,9 @@ export default function ChatPage({ params }: { params: { chatId: string } }) {
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
    }, [messages])
 
-   useEffect(() => {
-      const handleResize = () => {
-         setWindowHeight(window.innerHeight)
-      }
-
-      handleResize()
-      window.addEventListener('resize', handleResize)
-
-      return () => window.removeEventListener('resize', handleResize)
-   }, [])
-
    return (
-      <div className="flex flex-col h-screen bg-blue-50" style={{ height: `${windowHeight}px` }}>
-         {/* Header */}
+      <div className="flex flex-col h-screen bg-blue-50">
+         {/* Fixed Header */}
          <div className="fixed top-0 left-0 right-0 z-10 bg-white border-b px-4 py-2">
             <div className="flex items-center justify-between">
                <div className="flex items-center gap-3">
@@ -86,7 +96,7 @@ export default function ChatPage({ params }: { params: { chatId: string } }) {
          </div>
 
          {/* Chat Messages */}
-         <div className="flex-1 overflow-y-auto p-4 space-y-4 pt-20 pb-20">
+         <div className="flex-1 overflow-y-auto p-4 space-y-4 mt-20 mb-20">
             {messages.map((msg) => (
                <div
                   key={msg.id}
