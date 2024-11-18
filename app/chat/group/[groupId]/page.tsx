@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Input } from "@/components/ui/input"
-import { Send, ArrowLeft, Users } from 'lucide-react'
+import { Send, ArrowLeft, Users, Upload } from 'lucide-react'
 import Link from "next/link"
 
 interface Message {
@@ -85,7 +85,7 @@ export default function GroupChatPage({ params }: { params: { groupId: string } 
          </div>
 
          {/* Chat Messages */}
-         <div className="flex-1 overflow-y-auto p-4 space-y-4">
+         <div className="flex-1 overflow-y-auto p-4 space-y-4 mt-20 mb-20">
             {messages.map((msg) => (
                <div
                   key={msg.id}
@@ -121,11 +121,19 @@ export default function GroupChatPage({ params }: { params: { groupId: string } 
          {/* Message Input */}
          <div className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm border-t p-4">
             <form onSubmit={handleSendMessage} className="flex items-center gap-2">
+               <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  className="text-blue-600"
+               >
+                  <Upload className="h-5 w-5" />
+               </Button>
                <Input
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Type a message..."
-                  className="flex-1 bg-white"
+                  className="flex-1"
                />
                <Button
                   type="submit"
