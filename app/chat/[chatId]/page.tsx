@@ -18,6 +18,7 @@ interface Message {
 export default function ChatPage({ params }: { params: { chatId: string } }) {
    const [message, setMessage] = useState("")
    const messagesEndRef = useRef<HTMLDivElement>(null)
+   const [windowHeight, setWindowHeight] = useState(0)
 
    // Sample messages - replace with actual data from WebSocket
    const messages: Message[] = [
@@ -47,10 +48,21 @@ export default function ChatPage({ params }: { params: { chatId: string } }) {
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
    }, [messages])
 
+   useEffect(() => {
+      const handleResize = () => {
+         setWindowHeight(window.innerHeight)
+      }
+
+      handleResize()
+      window.addEventListener('resize', handleResize)
+
+      return () => window.removeEventListener('resize', handleResize)
+   }, [])
+
    return (
-      <div className="flex flex-col h-screen bg-blue-50">
+      <div className="flex flex-col h-screen bg-blue-50" style={{ height: `${windowHeight}px` }}>
          {/* Header */}
-         <div className="sticky top-0 z-10 bg-white border-b px-4 py-2">
+         <div className="fixed top-0 left-0 right-0 z-10 bg-white border-b px-4 py-2">
             <div className="flex items-center justify-between">
                <div className="flex items-center gap-3">
                   <Link href="/chat">
@@ -74,7 +86,7 @@ export default function ChatPage({ params }: { params: { chatId: string } }) {
          </div>
 
          {/* Chat Messages */}
-         <div className="flex-1 overflow-y-auto p-4 space-y-4">
+         <div className="flex-1 overflow-y-auto p-4 space-y-4 pt-20 pb-20">
             {messages.map((msg) => (
                <div
                   key={msg.id}
@@ -97,7 +109,7 @@ export default function ChatPage({ params }: { params: { chatId: string } }) {
          </div>
 
          {/* Message Input */}
-         <div className="sticky bottom-0 bg-white border-t p-4">
+         <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4">
             <form onSubmit={handleSendMessage} className="flex items-center gap-2">
                <Button
                   type="button"
