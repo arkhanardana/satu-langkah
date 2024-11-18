@@ -9,41 +9,45 @@ import { ArrowLeft, MessageCircle } from 'lucide-react'
 import Dock from "@/components/mobile-dock"
 
 interface GroupChatItemProps {
+   id: string
    name: string
    members: string[]
 }
 
-function GroupChatItem({ name, members }: GroupChatItemProps) {
+function GroupChatItem({ id, name, members }: GroupChatItemProps) {
    return (
-      <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors">
-         <Avatar className="h-10 w-10">
-            <AvatarFallback>G</AvatarFallback>
-            <AvatarImage src="/images/john.jpg" alt="Group Profile" />
-         </Avatar>
-         <div className="flex-1 min-w-0">
-            <h3 className="font-medium text-sm">{name}</h3>
-            <div className="flex -space-x-1 overflow-hidden mt-1">
-               {members.slice(0, 5).map((member, index) => (
-                  <Avatar key={index} className="h-4 w-4 border border-white">
-                     <AvatarFallback className="text-[8px]">{member[0]}</AvatarFallback>
-                     <AvatarImage src="/images/john.jpg" alt="Member Profile" />
-                  </Avatar>
-               ))}
-               {members.length > 5 && (
-                  <div className="flex items-center justify-center h-4 w-4 rounded-full bg-gray-200 text-[8px] font-medium">
-                     +{members.length - 5}
-                  </div>
-               )}
+      <Link href={`/chat/group/${id}`} className="block">
+         <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors">
+            <Avatar className="h-10 w-10">
+               <AvatarFallback>G</AvatarFallback>
+               <AvatarImage src="/images/john.jpg" alt="Group Profile" />
+            </Avatar>
+            <div className="flex-1 min-w-0">
+               <h3 className="font-medium text-sm">{name}</h3>
+               <div className="flex -space-x-1 overflow-hidden mt-1">
+                  {members.slice(0, 5).map((member, index) => (
+                     <Avatar key={index} className="h-4 w-4 border border-white">
+                        <AvatarFallback className="text-[8px]">{member[0]}</AvatarFallback>
+                        <AvatarImage src="/images/john.jpg" alt="Member Profile" />
+                     </Avatar>
+                  ))}
+                  {members.length > 5 && (
+                     <div className="flex items-center justify-center h-4 w-4 rounded-full bg-gray-200 text-[8px] font-medium">
+                        +{members.length - 5}
+                     </div>
+                  )}
+               </div>
             </div>
          </div>
-      </div>
+      </Link>
    )
 }
 
 export default function GroupChatPage() {
    // Sample groups data with member names
    const groups = Array(12).fill(null).map((_, index) => ({
-      name: `Group #${index + 1}`,
+      id: `group-${index + 1}`,
+      name: `Group ${index + 1}`,
       members: Array(Math.floor(Math.random() * 5) + 3)
          .fill(null)
          .map((_, i) => `Member ${i + 1}`)
@@ -83,12 +87,13 @@ export default function GroupChatPage() {
                   </Link>
                </div>
             </div>
-            
+
             {/* Groups List */}
             <Card className="m-4 border-2 border-blue-100">
                <div className="p-3 space-y-2">
                   {groups.map((group, index) => (
                      <GroupChatItem
+                        id={group.id}
                         key={index}
                         name={group.name}
                         members={group.members}
