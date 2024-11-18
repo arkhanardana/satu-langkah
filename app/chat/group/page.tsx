@@ -83,6 +83,7 @@ export default function GroupChatPage() {
                   </Link>
                </div>
             </div>
+            
             {/* Groups List */}
             <Card className="m-4 border-2 border-blue-100">
                <div className="p-3 space-y-2">

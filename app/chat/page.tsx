@@ -16,7 +16,7 @@ interface ChatPartnerItemProps {
 
 function ChatPartnerItem({ id, name, lastChat }: ChatPartnerItemProps) {
    return (
-      <Link href={`/chat/${id}`}>
+      <Link href={`/chat/${id}`} className="block">
          <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors">
             <Avatar className="h-10 w-10">
                <AvatarFallback>{name[0]}</AvatarFallback>
