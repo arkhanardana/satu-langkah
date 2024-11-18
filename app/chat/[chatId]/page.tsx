@@ -49,8 +49,8 @@ export default function ChatPage({ params }: { params: { chatId: string } }) {
 
    return (
       <div className="flex flex-col h-screen bg-blue-50">
-         {/* Fixed Header */}
-         <div className="fixed top-0 left-0 right-0 z-10 bg-white border-b px-4 py-2">
+         {/* Header */}
+         <div className="sticky top-0 z-10 bg-white border-b px-4 py-2">
             <div className="flex items-center justify-between">
                <div className="flex items-center gap-3">
                   <Link href="/chat">
@@ -74,7 +74,7 @@ export default function ChatPage({ params }: { params: { chatId: string } }) {
          </div>
 
          {/* Chat Messages */}
-         <div className="flex-1 overflow-y-auto p-4 space-y-4 mt-20 mb-20">
+         <div className="flex-1 overflow-y-auto p-4 space-y-4">
             {messages.map((msg) => (
                <div
                   key={msg.id}
@@ -97,7 +97,7 @@ export default function ChatPage({ params }: { params: { chatId: string } }) {
          </div>
 
          {/* Message Input */}
-         <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4">
+         <div className="sticky bottom-0 bg-white border-t p-4">
             <form onSubmit={handleSendMessage} className="flex items-center gap-2">
                <Button
                   type="button"
