@@ -16,7 +16,7 @@ interface CommunityItemProps {
 
 function CommunityItem({ title, description, isVIP = false, id }: CommunityItemProps) {
    return (
-      <Link href={`/community/${id}`}>
+      <Link href={`/community/${id}`} className="block">
          <div className={`flex items-center gap-4 p-4 rounded-xl ${isVIP ? 'bg-yellow-400' : 'bg-blue-50'}`}>
             <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-white border-2 border-gray-200 shrink-0"></div>
             <div>
