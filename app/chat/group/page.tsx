@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { ArrowLeft, MessageCircle } from 'lucide-react'
+import { ArrowLeft, MessageCircle, Plus } from 'lucide-react'
 import Dock from "@/components/mobile-dock"
 
 interface GroupChatItemProps {
@@ -73,18 +73,30 @@ export default function GroupChatPage() {
                            height={80}
                         />
                      </div>
-                     <h1 className="text-lg font-semibold">Group Chat's</h1>
+                     <h1 className="text-lg font-semibold">Group</h1>
                   </div>
-                  <Link href="/chat">
-                     <Button
-                        variant="default"
-                        size="sm"
-                        className="bg-blue-600 hover:bg-blue-700"
-                     >
-                        <MessageCircle className="h-4 w-4 mr-1" />
-                        Chat
-                     </Button>
-                  </Link>
+                  <div className="flex items-center space-x-2">
+                     <Link href="/chat/group/add">
+                        <Button
+                           variant="outline"
+                           size="sm"
+                           className="border-blue-600 text-blue-600 hover:bg-blue-50"
+                        >
+                           <Plus className="h-4 w-4" />
+                           Add
+                        </Button>
+                     </Link>
+                     <Link href="/chat">
+                        <Button
+                           variant="default"
+                           size="sm"
+                           className="bg-blue-600 hover:bg-blue-700"
+                        >
+                           <MessageCircle className="h-4 w-4 mr-1" />
+                           Chat
+                        </Button>
+                     </Link>
+                  </div>
                </div>
             </div>
 
@@ -93,8 +105,8 @@ export default function GroupChatPage() {
                <div className="p-3 space-y-2">
                   {groups.map((group, index) => (
                      <GroupChatItem
+                        key={group.id}
                         id={group.id}
-                        key={index}
                         name={group.name}
                         members={group.members}
                      />

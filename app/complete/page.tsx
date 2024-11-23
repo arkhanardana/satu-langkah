@@ -42,6 +42,9 @@ const formSchema = z.object({
    gender: z.string({
       required_error: "Gender is required",
    }),
+   account: z.string({
+      required_error: "Account type is required",
+   }),
    skills: z.array(z.string()).min(1, "Select at least one skill"),
    customSkill: z.string().optional(),
 })
@@ -182,6 +185,29 @@ export default function Complete() {
                               <SelectContent>
                                  <SelectItem value="male">Male</SelectItem>
                                  <SelectItem value="female">Female</SelectItem>
+                              </SelectContent>
+                           </Select>
+                           <FormMessage />
+                        </FormItem>
+                     )}
+                  />
+
+                  {/* Account Type Field */}
+                  <FormField
+                     control={form.control}
+                     name="account"
+                     render={({ field }) => (
+                        <FormItem>
+                           <FormLabel>Gender</FormLabel>
+                           <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                 <SelectTrigger>
+                                    <SelectValue placeholder="Select your account type" />
+                                 </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                 <SelectItem value="investor">Investor</SelectItem>
+                                 <SelectItem value="partner">Partner</SelectItem>
                               </SelectContent>
                            </Select>
                            <FormMessage />
