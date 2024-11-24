@@ -115,7 +115,7 @@ export default function InvitationPage() {
 
             {invitations.length === 0 && (
                <div className="text-center py-8">
-                  <p className="text-gray-500">No invitations at the moment</p>
+                  <p className="text-gray-500">No invitations right now</p>
                </div>
             )}
          </div>
