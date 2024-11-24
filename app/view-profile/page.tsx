@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowLeft, ThumbsUp, Eye, MessageSquare, Menu, Send } from "lucide-react"
+import { ArrowLeft, ThumbsUp, Eye, MessageSquare, Menu, Send, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -48,6 +48,12 @@ export default function ViewProfilePage() {
                   <p className="text-gray-600 mb-1">Province</p>
                </div>
                {isInvestor && <div className="relative w-full">
+                  <p className="text-blue-600 text-center">Main Skill (First Skill to Select)</p>
+                  <Link href={"/invitation"}>
+                     <Mail className="absolute top-0 right-0 mr-4 mt-0" />
+                  </Link>
+               </div>}
+               {!isInvestor && <div className="relative w-full">
                   <p className="text-blue-600 text-center">Main Skill (First Skill to Select)</p>
                   <Link href={"/send-investor"}>
                      <Send className="absolute top-0 right-0 mr-4 mt-0" />

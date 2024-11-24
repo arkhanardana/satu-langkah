@@ -15,7 +15,7 @@ export default function CreateArticlePage() {
          <div className="max-w-md mx-auto p-4">
             {/* Header */}
             <div className="flex items-center gap-4 mb-6">
-               <Link href="/">
+               <Link href="/view-profile">
                   <Button variant="ghost" size="icon" className="text-blue-600">
                      <ArrowLeft className="h-6 w-6" />
                   </Button>
