@@ -24,7 +24,7 @@ export default function PremiumDashboard() {
          <div className="max-w-4xl mx-auto">
             <div className="flex items-center mb-6">
                <Link href="/">
-                  <Button variant="ghost" size="icon" className="text-gray-600 hover:bg-blue-100">
+                  <Button variant="ghost" size="icon" className="text-blue-600 hover:bg-blue-100">
                      <ArrowLeft className="h-6 w-6" />
                   </Button>
                </Link>
@@ -41,7 +41,7 @@ export default function PremiumDashboard() {
                         config={{
                            views: {
                               label: "Views",
-                              color: "hsl(217, 91%, 60%)", // Tailwind blue-500
+                              color: "hsl(217, 91%, 60%)",
                            },
                         }}
                      >

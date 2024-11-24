@@ -198,7 +198,7 @@ export default function Complete() {
                      name="account"
                      render={({ field }) => (
                         <FormItem>
-                           <FormLabel>Gender</FormLabel>
+                           <FormLabel>Account type</FormLabel>
                            <Select onValueChange={field.onChange} defaultValue={field.value}>
                               <FormControl>
                                  <SelectTrigger>

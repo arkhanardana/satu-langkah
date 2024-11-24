@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowLeft, ThumbsUp, Eye, MessageSquare, Menu } from "lucide-react"
+import { ArrowLeft, ThumbsUp, Eye, MessageSquare, Menu, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -40,14 +40,19 @@ export default function ViewProfilePage() {
                   <AvatarImage src="/images/john.jpg" alt="My Profile" />
                </Avatar>
                <div className="text-center">
-                  <div className="text-sm text-gray-600 mb-1 flex justify-around">
+                  <div className="text-sm text-gray-600 mb-1 flex justify-around gap-x-14">
                      <p>Partner:</p>
                      {isInvestor ? <p>Invest:</p> : <p>Investor:</p>}
                   </div>
                   <h1 className="text-xl font-semibold mb-1">Nama | Umur</h1>
                   <p className="text-gray-600 mb-1">Province</p>
-                  <p className="text-blue-600">Main Skill (First Skill to Select)</p>
                </div>
+               {isInvestor && <div className="relative w-full">
+                  <p className="text-blue-600 text-center">Main Skill (First Skill to Select)</p>
+                  <Link href={"/send-investor"}>
+                     <Send className="absolute top-0 right-0 mr-4 mt-0" />
+                  </Link>
+               </div>}
             </div>
 
             {/* Content Sections */}
