@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Input } from "@/components/ui/input"
-import { Upload, Send, ArrowLeft } from 'lucide-react'
+import { Upload, Send, ArrowLeft, Plus } from 'lucide-react'
 import Link from "next/link"
 
 interface Message {
@@ -129,6 +129,16 @@ export default function ChatPage({ params }: { params: { chatId: string } }) {
                >
                   <Upload className="h-5 w-5" />
                </Button>
+               <Link href={"/smart-ai"}>
+                  <Button
+                     type="button"
+                     variant="ghost"
+                     size="icon"
+                     className="text-blue-600"
+                  >
+                     <Plus className="h-5 w-5" />
+                  </Button>
+               </Link>
                <Input
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}

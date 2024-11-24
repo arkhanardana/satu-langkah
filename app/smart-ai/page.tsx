@@ -22,7 +22,7 @@ export default function ChatAIPage() {
    return (
       <div className="flex flex-col min-h-screen bg-gray-50">
          <div className="flex justify-between items-center bg-white shadow-">
-            <Link href="/">
+            <Link href="/chat/group">
                <Button variant="ghost" size="icon" className="text-blue-600">
                   <ArrowLeft className="h-6 w-6" />
                </Button>
@@ -37,9 +37,9 @@ export default function ChatAIPage() {
             <Card className="flex-grow flex flex-col border-2 border-blue-100 bg-blue-50/50 overflow-hidden">
                <CardHeader className="p-4 space-y-2">
                   <div className="bg-white rounded-lg p-4 shadow-sm">
-                     <h2 className="font-semibold text-lg mb-2">Langkah AI</h2>
+                     <h2 className="font-semibold text-lg mb-2">Smart Contract AI</h2>
                      <p className="text-sm text-gray-600">
-                        Temukan solusi bisnis dan finansial tepat dengan Smart Konsultan. Ditenagai OpenAI, siap memberi insight dan saran langsung untuk strategi, peluang, dan keuangan usaha kamu. Mulai konsultasi dan bawa bisnismu selangkah lebih maju!
+                        Buat kontrak bisnis anda dengan partner anda melalui Smart Contract AI. Anda hanya perlu mengetikkan apa yang anda mau di chat dibawah lalu AI yang akan mengerjakan kontrak tersebut.
                      </p>
                   </div>
                </CardHeader>
