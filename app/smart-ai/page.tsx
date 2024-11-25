@@ -39,7 +39,7 @@ export default function ChatAIPage() {
                   <div className="bg-white rounded-lg p-4 shadow-sm">
                      <h2 className="font-semibold text-lg mb-2">Smart Contract AI</h2>
                      <p className="text-sm text-gray-600">
-                        Buat kontrak bisnis anda dengan partner anda melalui Smart Contract AI. Anda hanya perlu mengetikkan apa yang anda mau di chat dibawah lalu AI yang akan mengerjakan kontrak tersebut.
+                        Buat kontrak bisnis anda dengan partner anda melalui Smart Contract AI. Anda hanya perlu mengetikkan apa yang anda mau di chat di bawah lalu AI yang akan mengerjakan kontrak tersebut.
                      </p>
                   </div>
                </CardHeader>
